@@ -19,7 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureStubRunner(
         ids = {"com.devoxx:checkout"},
         stubsMode = StubRunnerProperties.StubsMode.REMOTE,
-        repositoryRoot = "git://file:///Users/ygrenzinger/git/contract.git"
+        repositoryRoot = "git://file:///Users/ygrenzinger/git/contract.git",
+        stubsPerConsumer = true,
+        consumerName = "delivery"
 )
 class DeliveryApplicationTests {
 

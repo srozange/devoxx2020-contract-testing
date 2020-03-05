@@ -30,7 +30,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureStubRunner(
         ids = {"com.devoxx:inventory:+:stubs:8080"},
         stubsMode = StubRunnerProperties.StubsMode.REMOTE,
-        repositoryRoot = "git://file:///Users/ygrenzinger/git/contract.git"
+        repositoryRoot = "git://file:///Users/ygrenzinger/git/contract.git",
+        stubsPerConsumer = true,
+        consumerName = "checkout"
 )
 @AutoConfigureMockMvc
 public class CheckoutApplicationTests {
