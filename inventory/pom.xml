@@ -80,6 +80,13 @@
                     <testFramework>JUNIT5</testFramework>
                     <baseClassForTests>com.devoxx.inventory.contracts.ContractsBase</baseClassForTests>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-contract-pact</artifactId>
+                        <version>2.2.1.RELEASE</version>
+                    </dependency>
+                </dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
