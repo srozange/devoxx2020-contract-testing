@@ -24,7 +24,7 @@ In inventory project, the goal is to learn how to test APIs and the groovy DSL.
 - A base testing class is mandatory and configure the parent class of generated test classes. It handles the context needed for the tests. You have to configure the location of base contract class available here `com.devoxx.inventory.contracts.ContractsBase` by configuring the maven plugin with line `<baseClassForTests>` (see here)[https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract-maven-plugin/junit.html].
 - run `mvn clean test` to see the plugin generate tests in this class `_target/generated-test-sources_/org/springframework/cloud/contract/verifier/tests/ContractVerifierTest.java`.
 - The contract `shouldRetrieveAllBooks` should pass now. To better understand, the [Groovy DSL documentation is here](https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.2.1.RELEASE/reference/html/project-features.html#contract-dsl)
-- Uncomment the test `shouldRetrieveBook`. You need to generate again the contract tests. to go fast, use `mvn spring-cloud-contract:generateTests` directly, then run `mvn test` to run the test (or execute `ContractVerifierTest` directly in your IDE). It fails due to wrong url in the controller. You can easily correct it. You can also see the use of [dynamic and regex properties](https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.2.1.RELEASE/reference/html/project-features.html#contract-dsl-dynamic-properties)
+- Uncomment the test `w`. You need to generate again the contract tests. to go fast, use `mvn spring-cloud-contract:generateTests` directly, then run `mvn test` to run the test (or execute `ContractVerifierTest` directly in your IDE). It fails due to wrong url in the controller. You can easily correct it. You can also see the use of [dynamic and regex properties](https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.2.1.RELEASE/reference/html/project-features.html#contract-dsl-dynamic-properties)
 - **important** : Look how the url is defined, there is two parts : consumer and producer
   - Read more [here](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#contract-dsl-regex)
 - __info__ : You can test only the relevant fields in the response.
@@ -464,7 +464,7 @@ You should see that two contracts are now being verified.
 
 #### Write yet a contract 
 
-Now we to send the order to the ```checkout``` service.
+Now we want to send the order to the ```checkout``` service.
 To do that we will write a contract between ```book-shop-basket``` and ```checkout``` service
 
 This interaction will be :

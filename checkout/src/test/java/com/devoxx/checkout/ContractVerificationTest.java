@@ -1,13 +1,7 @@
 package com.devoxx.checkout;
 
-import au.com.dius.pact.provider.junit5.PactVerificationContext;
-import au.com.dius.pact.provider.junitsupport.Provider;
-import au.com.dius.pact.provider.junitsupport.State;
-import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
-import au.com.dius.pact.provider.spring.junit5.PactVerificationSpringProvider;
 import com.devoxx.checkout.domain.Cashier;
 import com.devoxx.checkout.domain.ValidatedOrder;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +22,7 @@ public class ContractVerificationTest {
     @MockBean
     private Cashier cashier;
 
+    /*
     @State("an order")
     public void before() {
         when(cashier.checkoutNow(any())).thenReturn(
@@ -37,11 +32,14 @@ public class ContractVerificationTest {
                         LocalDateTime.now())
         );
     }
+    */
 
+    /*
     @TestTemplate
     @ExtendWith(PactVerificationSpringProvider.class)
     void pactVerificationTestTemplate(PactVerificationContext context) {
         context.verifyInteraction();
     }
+    */
 
 }
