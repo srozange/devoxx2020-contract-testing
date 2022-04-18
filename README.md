@@ -250,7 +250,7 @@ pactbroker:
     token: [your token]
 ```
 
-We can now go the the contract verification.
+We can now go the contract verification.
 - Go in the `ContractVerificationTest` class which is our test class
 - uncomment `@PactBroker` which tells pact we will use the pact broker
 - uncomment `@Provider("inventory-service")` which tells pact we want to test all the contracts which have `inventory-service` as the provider
@@ -385,7 +385,7 @@ The setup :
   });
 ```
 
-The after test vérifications
+The after test verifications
 
 ```js
   // Verify test
