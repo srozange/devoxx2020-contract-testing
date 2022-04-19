@@ -337,7 +337,7 @@ pact: [
      consumer: 'book-shop-basket',
      provider: 'inventory-service',
      port: 1234,
-     spec: 3,
+     spec: 4,
      log: path.resolve(process.cwd(), 'logs', 'mockserver-integration.log'),
      dir: path.resolve('pacts')
    }
@@ -353,7 +353,7 @@ So we tell Pact that we will create contracts between ```book-shop-basket``` and
 
 ```port: 1234``` define the port on which the stub server will be available.
 
-```spec: 3``` express that we will use the version 3 of the contract specification as there is several.
+```spec: 4``` express that we will use the version 3 of the contract specification as there is several.
 
 ```log``` and ```dir``` configure respectively where will be written the logs and the contracts.
 
