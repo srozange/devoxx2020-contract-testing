@@ -1,11 +1,5 @@
 package com.devoxx.checkout.provider;
 
-import au.com.dius.pact.consumer.dsl.PactBuilder;
-import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
-import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
-import au.com.dius.pact.consumer.junit5.PactTestFor;
-import au.com.dius.pact.core.model.V4Pact;
-import au.com.dius.pact.core.model.annotations.Pact;
 import com.devoxx.checkout.CheckoutApplication;
 import com.devoxx.checkout.domain.Book;
 import org.junit.jupiter.api.Test;
