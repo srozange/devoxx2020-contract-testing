@@ -21,12 +21,13 @@ You can read a bit the [introduction to Spring Cloud Contract](https://docs.spri
 - Go to Maven __pom.xml__ and uncomment the Spring Cloud Contract test dependancy and plugin [doc here](https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract-maven-plugin/) 
 - A base testing class is mandatory and configure the parent class of generated test classes. It handles the context needed for the tests. You have to configure the location of base contract class available here `com.devoxx.inventory.contracts.ContractsBase` by configuring the maven plugin with line `<baseClassForTests>` [see here](https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract-maven-plugin/junit.html).
 - run `mvn clean test` to see the plugin generate tests in this class `_target/generated-test-sources_/org/springframework/cloud/contract/verifier/tests/ContractVerifierTest.java` for all the contracts stored in the default directory `src/test/resources/contracts`
-- The contract `shouldRetrieveAllBooks` should pass now. To better understand, the [Groovy DSL documentation is here](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#features-http)
-- Uncomment the test `shouldRetrieveBook`. You need to generate again the contract tests. to go fast, use `mvn spring-cloud-contract:generateTests` directly, then run `mvn test` to run the test (or execute `ContractVerifierTest` directly in your IDE). It fails due to wrong url in the controller. You can easily correct it. You can also see the use of [dynamic and regex properties](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#contract-dsl-dynamic-properties)
+- The contract `shouldRetrieveAllBooks` (`src/test/resources/contracts/shouldRetrieveAllBooks.groovy`) should pass now. To better understand, the [Groovy DSL documentation is here](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#features-http)
+  - You can also run the generated test classe which should be here : `target/generated-test-sources/contracts/com/devoxx/inventory/contracts/ContractVerifierTest.java`
+- Uncomment the test `shouldRetrieveBook` (`src/test/resources/contracts/shouldRetrieveBook.groovy`). You need to generate again the contract tests. to go fast, use `mvn spring-cloud-contract:generateTests` directly, then run `mvn test` to run the test (or execute `ContractVerifierTest` directly in your IDE). It fails due to wrong url in the controller. You can easily correct it. You can also see the use of [dynamic and regex properties](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#contract-dsl-dynamic-properties)
 -  **important** : Look how the url is defined, there is two parts : consumer and producer
   - Read more [here](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#contract-dsl-regex)
 - __info__ : You can test only the relevant fields in the response.
-- __info__ : to directly generate the contract tests, use `mvn spring-cloud-contract:generateTests` directly to avoid running full maven build.
+- __info__ : to directly generate the contract tests, use `mvn spring-cloud-contract:generateTests` to avoid running full maven build (a `mvn clean` may be necessary before).
 - __info__ : For very complex use case, you can also [reference the parameters from the request](https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#contract-dsl-referencing-request-from-response)
 - Uncomment the test `shouldCreateBookIntoInventory` and make it test the create POST endpoint. The problem here is the random UUID. You can either control the UUID generator in the test or use matchers.
   - We want to verify that we receive a POST on /v1/books with as body a JSON Book containing :
@@ -41,7 +42,7 @@ You can read a bit the [introduction to Spring Cloud Contract](https://docs.spri
 - Create the contract `shouldReduceStockInInventory` and make it test the reduce stock POST endpoint. You also will have to uncomment it to show some ATDD practices :)
   - we want to verify that we receive a POST on /v1/books/d4d37e73-77a0-4616-8bd2-5ed983d45d14/stock/reduce/2 aka reducing by 2 the number of Java books
   - then we expect the response to have the status OK (Http 200) with as a body a JSON Book containing a stock field which is an integer, e.g. 92
-- Do mvn install on inventory project for making stub accessible for consumers
+- Do `mvn install` on inventory project for making stub accessible for consumers
 
 
 ### In checkout project, the goal are to learn how to use the contract test as stubs in the consumer and to create a message contract.
@@ -64,7 +65,7 @@ You can read a bit the [introduction to Spring Cloud Contract](https://docs.spri
             messagingContentType(applicationJson())
         }
     ```
-- You can now run again the test `CheckoutApplicationTests` to check that the message is sent
+- You can now run again the test `ContractVerifierTest` to check that the message is sent
 - mvn install for making stub accessible for the message consumer
 
 In delivery project:
