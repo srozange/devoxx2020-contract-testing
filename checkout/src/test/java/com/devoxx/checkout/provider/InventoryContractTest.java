@@ -39,9 +39,7 @@ class InventoryContractTest {
                 .status(200)
                 .body(new PactDslJsonBody()
                         .stringType("id", "8f6413e9-a2a5-449d-a563-177d8acaaa63")
-                        .stringType("name", "Domain Driven Design")
-                        .numberType("price", 49.5)
-                        .numberType("stock", 12)
+                        // Add the body content
                 )
                 .toPact(V4Pact.class);
     }*/
