@@ -36,7 +36,7 @@ module.exports = function (config) {
     //     consumer: 'book-shop-basket',
     //     provider: 'inventory-service',
     //     port: 1234,
-    //     spec: 3,
+    //     spec: 4,
     //     log: path.resolve(process.cwd(), 'logs', 'mockserver-integration.log'),
     //     dir: path.resolve('pacts')
     //   },
