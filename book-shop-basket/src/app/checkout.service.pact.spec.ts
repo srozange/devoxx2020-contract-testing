@@ -69,7 +69,7 @@ xdescribe('CheckoutServiceContract', () => {
     });
 
     it('should checkout', (done) => {
-      const checkoutService: CheckoutService = TestBed.get(CheckoutService);
+      const checkoutService: CheckoutService = TestBed.inject(CheckoutService);
       checkoutService.checkout(order).subscribe(response => {
         expect(response).toEqual(order);
         done();

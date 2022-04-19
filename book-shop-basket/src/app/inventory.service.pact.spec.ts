@@ -67,7 +67,7 @@ describe('InventoryServiceContract', () => {
     });
 
     it('should get book inventory', (done) => {
-      const inventoryService: InventoryService = TestBed.get(InventoryService);
+      const inventoryService: InventoryService = TestBed.inject(InventoryService);
       inventoryService.allBooks().subscribe(response => {
         expect(response).toEqual(books);
         done();
