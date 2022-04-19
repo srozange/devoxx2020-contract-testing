@@ -129,7 +129,8 @@ public V4Pact getBookContract(PactBuilder builder) {
             .willRespondWith()
             .status(200)
             .body(new PactDslJsonBody()
-                .stringType("name", "maxime") // seams implementation is not finished yet
+                .stringType("id", "8f6413e9-a2a5-449d-a563-177d8acaaa63")
+                // Add the body content
             )
             .toPact(V4Pact.class);
 }
@@ -153,7 +154,7 @@ Implement the matcher so that the contract expect this kind of body :
   "stock": 12
 }
 ```
-Please not that this is an exemple, you should test the structure.
+Please note that this is an exemple, you should test the structure.
 
 You'll find some documentation about matchers [here](https://docs.pact.io/implementation_guides/jvm/consumer/junit#building-json-bodies-with-pactdsljsonbody-dsl)
 
@@ -455,11 +456,12 @@ let options = {
 };
 ```
 
-Now you can publish the contract by running : `npm publish-pacts` or `yarn publish-pacts`.
+Now you can publish the contract by running : `npm run publish-pacts` or `yarn publish-pacts`.
 
 You should be able to see your contracts in your pact broker.
 
-You can now go in the `inventory` service again and run the test `ContractVerificationTest`.
+You can now go in the `inventory` service again, uncomment the setup method `givenSeveralProduct` and run the test `ContractVerificationTest`.
+
 You should see that two contracts are now being verified.
 
 #### Write yet a contract 
