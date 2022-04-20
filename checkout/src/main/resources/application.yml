@@ -12,7 +12,7 @@ spring:
       bindings:
         orders:
           content-type: application/json
-          destination: queue.delivery.orders
+          destination: orders
           binder: local_rabbit
       binders:
         local_rabbit:

@@ -58,13 +58,6 @@ You can read a bit the [introduction to Spring Cloud Contract](https://docs.spri
        - a clientId field which is a string, e.g: "yannick"
        - and createdAt field the current date time - You can use dependency injection or matchers ;)
     - This output will sentTo to `orders`
-    - You have to add also headers at the end
-    ```
-        headers {
-            header('SENDER', 'checkout')
-            messagingContentType(applicationJson())
-        }
-    ```
 - You can now run again the test `ContractVerifierTest` to check that the message is sent
 - mvn install for making stub accessible for the message consumer
 
