@@ -29,7 +29,7 @@ public class BookController {
         return bookInventory.allBooks(onlyHasStock.orElse(false));
     }
 
-    @GetMapping("/v1/book/{id}")
+    @GetMapping("/v1/books/{id}")
     public Book book(@PathVariable String id) {
         return bookInventory.findBook(id);
     }
@@ -45,9 +45,9 @@ public class BookController {
         return ResponseEntity.created(URI.create("/v1/books/"+book.getId())).body(book);
     }
 
-//    @PostMapping("/v1/books/{id}/stock/reduce/{number}")
-//    public Book reduceStock(@PathVariable String id, @PathVariable Integer number) {
-//        return bookInventory.reduceStock(id, number);
-//    }
+    @PostMapping("/v1/books/{id}/stock/reduce/{number}")
+    public Book reduceStock(@PathVariable String id, @PathVariable Integer number) {
+        return bookInventory.reduceStock(id, number);
+    }
 
 }
